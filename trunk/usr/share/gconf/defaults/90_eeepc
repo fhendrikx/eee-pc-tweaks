@@ -1,9 +1,10 @@
 /apps/nautilus/preferences/desktop_font		 		"Sans 8"
+/apps/nautilus/icon_view/default_zoom_level         "small"
 /desktop/gnome/interface/document_font_name		 	"Sans 8"
 /desktop/gnome/interface/font_name		 		"Sans 8"
 /apps/metacity/general/titlebar_font		 		"Sans Bold 8"
 /apps/metacity/window_keybindings/toggle_fullscreen		"<Alt>F11"
-/desktop/gnome/interface/monospace_font_name		 	"Monospace 8"
+/desktop/gnome/interface/monospace_font_name		 	"Monospace 9"
 /desktop/gnome/interface/toolbar_style		 		"icons"
 /desktop/gnome/sound/event_sounds		 		false
 /desktop/gnome/sound/default_mixer_tracks		 	[PCM]
