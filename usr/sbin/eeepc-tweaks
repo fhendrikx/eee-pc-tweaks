@@ -65,6 +65,6 @@ fi
 
 # remove ourselves from cron
 
-rm -f /etc/cron.d/eeepc
+rm -f /etc/cron.d/eeepc-tweaks
 
 exit 0
