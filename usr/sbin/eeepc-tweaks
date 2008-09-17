@@ -1,0 +1,70 @@
+#!/bin/sh
+######################################################################
+# eeepc-tweaks v1.3 by Ferry Hendrikx, (c) 2008
+#
+# System script that automatically configures your Ubuntu Linux system
+# for the Asus Eee PC (although these settings will work for any
+# standard PC). The main goal is to reduce wear-and-tear on the SSD
+# drive.
+#
+######################################################################
+
+# check we're running on an installed system
+
+if [ `dpkg -l | grep ubiquity | wc -l` -gt 0 ]; then
+    exit 0
+fi
+
+
+# check we're running as root
+
+if [ `whoami` != 'root' ]; then
+    exit 0
+fi
+
+
+# change /etc/fstab
+
+DEST='/etc/fstab'
+
+if [ `grep eeepc-tweaks ${DEST} | wc -l` -eq 0 ]; then
+
+    if [ ! -e "${DEST}.eeepc" ]; then
+        cp ${DEST} ${DEST}.eeepc
+    fi
+
+    sed 's/relatime/noatime/' < ${DEST} > ${DEST}.tmp
+    mv ${DEST}.tmp ${DEST}
+
+    grep -v '/media/cdrom' ${DEST} > ${DEST}.tmp
+    mv ${DEST}.tmp ${DEST}
+
+    chown root:root ${DEST}
+
+    echo "# settings added by eeepc-tweaks" >> ${DEST}
+    echo "tmpfs		/tmp		tmpfs	defaults,noatime,mode=1777	0 0" >> ${DEST}
+    echo "tmpfs		/var/tmp	tmpfs	defaults,noatime,mode=1777	0 0" >> ${DEST}
+    echo "tmpfs		/var/log	tmpfs	defaults,noatime,mode=0755	0 0" >> ${DEST}
+fi
+
+
+# change /boot/grub/menu.lst
+
+DEST='/boot/grub/menu.lst'
+
+if [ `grep 'timeout\s*0' ${DEST} | wc -l` -eq 0 ]; then
+
+    sed 's/^timeout\([ \t]*\)[0-9]*/timeout\10/' < ${DEST} > ${DEST}.tmp
+    mv ${DEST}.tmp ${DEST}
+
+    chown root:root ${DEST}
+
+    /usr/sbin/update-grub
+fi
+
+
+# remove ourselves from cron
+
+rm -f /etc/cron.d/eeepc
+
+exit 0
