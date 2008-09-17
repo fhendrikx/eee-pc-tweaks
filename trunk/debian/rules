@@ -23,8 +23,11 @@ binary-indep: checkroot
 	$(install_script) debian/postinst debian/tmp/DEBIAN/
 	$(install_script) debian/postrm debian/tmp/DEBIAN/
 
-	$(install_dir) debian/tmp/etc/init.d/
-	$(install_script) etc/init.d/* debian/tmp/etc/init.d/
+	$(install_dir) debian/tmp/etc/cron.d/
+	$(install_script) etc/cron.d/* debian/tmp/etc/cron.d/
+
+	$(install_dir) debian/tmp/usr/sbin/
+	$(install_file) usr/sbin/* debian/tmp/usr/sbin/
 
 	$(install_dir) debian/tmp/usr/share/doc/eeepc-tweaks/
 	$(install_file) debian/changelog debian/tmp/usr/share/doc/eeepc-tweaks/changelog.Debian
