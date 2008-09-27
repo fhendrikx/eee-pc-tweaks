@@ -1,0 +1,15 @@
+#!/bin/sh
+######################################################################
+# eeepc-tweaks by F.Hendrikx, (c) 2008
+# postinst script
+######################################################################
+set -e
+
+
+# add eeepc-tweaks GNOME defaults
+
+if [ -x "/usr/sbin/update-gconf-defaults" ]; then
+	/usr/sbin/update-gconf-defaults
+fi
+
+exit 0

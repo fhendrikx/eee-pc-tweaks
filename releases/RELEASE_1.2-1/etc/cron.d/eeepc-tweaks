@@ -1,0 +1,3 @@
+# cron job for eeepc-tweaks
+
+@reboot		root	[ -e "/usr/sbin/eeepc-tweaks" ] && /usr/sbin/eeepc-tweaks

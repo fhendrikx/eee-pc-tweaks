@@ -1,0 +1,13 @@
+eeepc-tweaks (1.2-1) unstable; urgency=low
+
+  * Changed scripts so they run only on an installed system
+  * Changed scripts to run via cron at boot time
+
+ -- Ferry Hendrikx <ferry.hendrikx@gmail.com>  Wed, 27 Sep 2008 16:00:00 +1200
+
+eeepc-tweaks (1.1-1) unstable; urgency=low
+
+  * Initial Revision
+
+ -- Ferry Hendrikx <ferry.hendrikx@gmail.com>  Tue,  2 Sep 2008 18:30:00 +1200
+
