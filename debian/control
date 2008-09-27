@@ -6,9 +6,10 @@ Standards-Version: 3.6.1.0
 
 Package: eeepc-tweaks
 Architecture: all
-Depends: dmidecode
+Depends: cron
 Description: Asus Eee PC tweaks
  This package provides automatic configuration of your Ubuntu Linux
  system for the Asus Eee PC. Installing this package configures 
  typical settings appropriate for Asus Eee PC. The main goal is to 
- reduce wear-and-tear on the SSD drive.
+ reduce wear-and-tear on the SSD drive, and fix a bug that causes
+ USB devices to not mount.
