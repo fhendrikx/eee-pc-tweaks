@@ -9,7 +9,7 @@
 #
 ######################################################################
 
-# check we're running on an installed system
+# check we're running on an installed system (not a livecd)
 
 if [ `dpkg -l | grep ubiquity | wc -l` -gt 0 ]; then
     exit 0
