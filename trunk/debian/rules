@@ -29,6 +29,9 @@ binary-indep: checkroot
 	$(install_dir) debian/tmp/usr/sbin/
 	$(install_script) usr/sbin/* debian/tmp/usr/sbin/
 
+	$(install_dir) debian/tmp/usr/share/backgrounds/
+	$(install_file) usr/share/backgrounds/* debian/tmp/usr/share/backgrounds/
+
 	$(install_dir) debian/tmp/usr/share/doc/eeepc-tweaks/
 	$(install_file) debian/changelog debian/tmp/usr/share/doc/eeepc-tweaks/changelog.Debian
 	gzip -9v debian/tmp/usr/share/doc/eeepc-tweaks/*
